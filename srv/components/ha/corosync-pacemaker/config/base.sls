@@ -28,13 +28,6 @@ Update ha user:
     - createhome: False
     - shell: /sbin/nologin
 
-#Configurations for Corosync and Pacemaker Setup
-Add hacluster user to haclient group:
-  group.present:
-    - name: haclient
-    - addusers:
-      - {{ pillar['cortx']['software']['corosync-pacemaker']['user'] }}
-
 Enable corosync service:
   service.dead:
     - name: corosync
